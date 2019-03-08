@@ -1,0 +1,21 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.4.0",
+    "async": "^2.6.2",
+    "express": "^4.16.4",
+    "google-protobuf": "^3.7.0",
+    "grpc": "^1.19.0",
+    "grpc-tools": "^1.7.1",
+    "lodash": "^4.17.11",
+    "minimalist": "^1.0.0"
+  }
+}
