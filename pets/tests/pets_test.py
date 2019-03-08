@@ -7,7 +7,6 @@ sys.path.append("..")
 import pets_pb2 as p
 import pets_pb2_grpc as p_grpc
 
-
 def test_get_pets():
     with grpc.insecure_channel(os.environ['PETS_HOST']) as channel:
         stub = p_grpc.PetsStub(channel)
