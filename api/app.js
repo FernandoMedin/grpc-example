@@ -29,7 +29,7 @@ app.get("/pets", function(req, res){
 	client.get_pets({user_id: req.query.user_id}, function(err, response){
 		console.log(err);
 		console.log(response);
-		res.send(response.pets_message);
+		res.send(response);
 	})
 });
 
