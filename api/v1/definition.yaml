@@ -1,0 +1,10 @@
+openapi: 3.0.0
+info:
+  title: DogHero API
+  description: API used on DogHero
+  version: 1.0.0
+servers:
+  - url: http://api.doghero.com.br/v1
+    description: Main (production) server
+  - url: http://staging.doghero.com.br/v1
+    description: Internal staging server for testing

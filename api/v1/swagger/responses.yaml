@@ -1,0 +1,63 @@
+components:
+  responses:
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Error:
+      description: Something wrong is not right
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    ValidationError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          additionalProperties: true # Free form
+      required:
+        - code
+        - message
+      example:
+        code: ValidationError
+        message: "Error while validating request: request.query should have required property 'offset'"
+        data: {}
+        # data:
+        #   - keyword: required
+        #     dataPath: .query
+        #     schemaPath: "#/properties/query/required"
+        #     params:
+        #       missingProperty: offset
+        #     message: "should have required property 'offset'"
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          additionalProperties: true # Free form
+      required:
+        - code
+        - message
+      example:
+        code: ValidationError
+        message: "Error while validating request: request.query should have required property 'offset'"
+        data: {}

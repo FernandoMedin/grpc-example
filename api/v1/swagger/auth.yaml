@@ -1,0 +1,16 @@
+components:
+  securitySchemes:
+    token:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  parameters:
+    acceptAdmin:
+      in: header
+      name: user_id
+      required: false
+      schema:
+        type: integer
+        example: 10
+      description: Use the user_id of the target you want to perform this action.
