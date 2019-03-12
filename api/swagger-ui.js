@@ -7,15 +7,12 @@ var helpers = require('./swagger-helper');
 const PORT = 3300;
 
 // Return setup for Swagger Ui
-const getSwaggerUiSetup = (version) => {
-  const swaggerSpec = helpers.getSwaggerSpec(version);
-  return swaggerUi.setup(swaggerSpec);
-}
+const useSchema = schema => (...args) => swaggerUi.setup(schema)(...args);
 
 VERSIONS.forEach((version) => {
-  const setup = getSwaggerUiSetup(version);
+  console.info('Configuring version:', version);
   const swaggerSpec = helpers.getSwaggerSpec(version);
-  app.use('/' + version, swaggerUi.serve, setup);
+  app.use('/' + version, swaggerUi.serve, useSchema(swaggerSpec));
   app.get('/' + version + '.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(swaggerSpec);
