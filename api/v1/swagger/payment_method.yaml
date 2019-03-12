@@ -17,7 +17,35 @@ paths:
         500:
           $ref: '#/components/responses/Error'
 
+  /payment_methods/{id}:
+    parameters:
+      - $ref: '#/components/parameters/paymentMethodId'
+    delete:
+      tags:
+        - financials
+      parameters:
+        - $ref: '#/components/parameters/acceptAdmin'
+      summary: Remove a payment method from DogHero
+      security:
+        - token: []
+      responses:
+        204:
+          description: Payment method was deleted
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
 components:
+  parameters:
+    paymentMethodId:
+      in: path
+      name: id
+      description: path parameter takes the payment method id
+      required: true
+      schema:
+        type: integer
+
   schemas:
     PaymentMethod:
       type: object
@@ -28,6 +56,7 @@ components:
           readOnly: true
         name:
           type: string
+          readOnly: true
         gateway:
           type: string
           enum: [iugu, conekta, mercado_pago]
@@ -39,8 +68,11 @@ components:
           readOnly: true
         brand:
           type: string
+          readOnly: true
         country:
           type: string
+          readOnly: true
+          enum: [arg, bra, mex]
         is_credit_card:
           type: boolean
           readOnly: true
@@ -49,8 +81,13 @@ components:
           readOnly: true
       example:
         id: 1
-        breed_id: 5
         name: Scooby Doo
+        gateway: iugu
+        last_four_numbers: '1234'
+        brand: Visa
+        country: mex
+        is_credit_card: true
+        bank_slip_url: http://url.for.bank_slip.url
     PaymentMethods:
       type: object
       additionalProperties:
