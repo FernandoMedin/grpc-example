@@ -1,0 +1,64 @@
+paths:
+  /profiles:
+    get:
+      tags:
+        - profiles
+      summary: Get profile from user
+      parameters:
+        - $ref: '#/components/parameters/acceptAdmin'
+      security:
+        - token: []
+      responses:
+        200:
+          $ref: '#/components/responses/ProfileResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+    put:
+      tags:
+        - profiles
+      summary: Update profile details
+      parameters:
+        - $ref: '#/components/parameters/profileData'
+      security:
+        - token: []
+      responses:
+        200:
+          $ref: '#/components/responses/PetResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
+components:
+  parameters:
+    profileData:
+      in: body
+      name: profile
+      description: It enables a user to update profile
+      required: true
+      schema:
+        $ref: '#/components/schemas/Profile'
+
+  schemas:
+    Profile:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          readOnly: true
+        name:
+          type: string
+      example:
+        id: 1
+        name: Peter Parker
+
+  responses:
+    ProfileResponse:
+      description: An object with a user profile detail
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Profile'
