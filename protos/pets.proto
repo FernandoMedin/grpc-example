@@ -3,15 +3,15 @@ syntax = "proto3";
 package pets;
 
 service Pets {
-  rpc get_pets (pets_request) returns (pets_reply) {}
+  rpc GetPets (PetsRequest) returns (PetsReply) {}
 }
 
-message pets_request {
+message PetsRequest {
   int32 user_id = 1;
   int32 pet_id = 2;
 }
 
-message pets_reply {
+message PetsReply {
   string pets_message = 1;
   string error = 2;
   repeated string pets = 3;
