@@ -1,0 +1,11 @@
+components:
+  parameters:
+    country:
+      in: query
+      name: country
+      description: Country
+      required: true
+      schema:
+        type: string
+        enum: ['arg', 'bra', 'mex']
+

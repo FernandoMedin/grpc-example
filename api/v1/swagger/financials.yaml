@@ -1,0 +1,25 @@
+paths:
+  /financials/gateway:
+    get:
+      tags:
+        - financials
+      summary: Gateway used for country
+      parameters:
+        - $ref: '#/components/parameters/country'
+      responses:
+        200:
+          $ref: '#/components/responses/GatewayResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+
+components:
+  responses:
+    GatewayResponse:
+      description: Gateway to be used
+      content:
+        application/json:
+          schema:
+            properties:
+              gateway:
+                type: string
+                enum: [iugu, conekta, mercado_pago, stp]

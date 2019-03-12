@@ -1,0 +1,25 @@
+paths:
+  /conekta:
+    post:
+      tags:
+        - financials
+      summary: Register a new credit card for user
+      parameters:
+        - $ref: '#/components/parameters/conektaToken'
+      responses:
+        200:
+          description: Credit Card was registred with success
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
+components:
+  parameters:
+    conektaToken:
+      in: body
+      name: token
+      description: Token from conekta api
+      required: true
+      schema:
+        type: string
