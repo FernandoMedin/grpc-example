@@ -9,6 +9,8 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/order'
         - $ref: '#/components/parameters/acceptAdmin'
+      security:
+        - token: []
       responses:
         200:
           $ref: '#/components/responses/PaymentMethodsResponse'

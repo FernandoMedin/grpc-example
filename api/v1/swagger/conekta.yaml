@@ -6,6 +6,8 @@ paths:
       summary: Register a new credit card for user
       parameters:
         - $ref: '#/components/parameters/conektaToken'
+      security:
+        - token: []
       responses:
         200:
           description: Credit Card was registred with success

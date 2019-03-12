@@ -8,6 +8,8 @@ paths:
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/order'
+      security:
+        - token: []
       responses:
         200:
           $ref: '#/components/responses/IuguAccountsResponse'
@@ -23,6 +25,8 @@ paths:
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/order'
+      security:
+        - token: []
       responses:
         200:
           $ref: '#/components/responses/IuguBanksResponse'
@@ -36,6 +40,8 @@ paths:
       summary: Register a new credit card for user
       parameters:
         - $ref: '#/components/parameters/iuguToken'
+      security:
+        - token: []
       responses:
         200:
           description: Credit Card was registred with success

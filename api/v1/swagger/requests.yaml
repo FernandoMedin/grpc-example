@@ -1,0 +1,9 @@
+components:
+  parameters:
+    headerVersion:
+      in: path
+      name: version
+      description: Version of device application
+      required: true
+      schema:
+        type: string
