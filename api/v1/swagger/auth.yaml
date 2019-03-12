@@ -1,4 +1,88 @@
+paths:
+  /auth/facebook:
+    post:
+      tags:
+        - auth
+      summary: Login using Facebook Id
+      parameters:
+        - in: body
+          name: token
+          description: Token from facebook api
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          $ref: '#/components/responses/AuthResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: Login using email and password
+      parameters:
+        - in: body
+          name: email
+          description: Email used for login
+          required: true
+          schema:
+            type: string
+            format: email
+
+        - in: body
+          name: password
+          description: Password for email used
+          required: true
+          schema:
+            type: string
+            minLength: 8
+            maxLength: 20
+      responses:
+        200:
+          $ref: '#/components/responses/AuthResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+  /auth/register:
+    post:
+      tags:
+        - auth
+      summary: Register using email and password
+      responses:
+        200:
+          $ref: '#/components/responses/AuthResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
 components:
+  responses:
+    AuthResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Auth'
+
+  schemas:
+    Auth:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          format: int64
+          readOnly: true
+        token:
+          type: string
+          readOnly: true
+      example:
+        user_id: 400
+        token: '918ksjAMSdsmdsKAsmds0293092'
+
   securitySchemes:
     token:
       type: http
