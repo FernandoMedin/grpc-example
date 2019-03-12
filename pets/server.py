@@ -19,10 +19,10 @@ class Pets(p_grpc.PetsServicer):
                 {"name": "Such Doge"}]
         }
     
-    def get_pets(self, request, context):
+    def GetPets(self, request, context):
         pets = [i['name'] for i in self.pet_list[request.user_id]]
         message = "Your pets: " + ", ".join(pets)
-        return p.pets_reply(pets=pets, pets_message=message)
+        return p.PetsReply(pets=pets, pets_message=message)
         
 
 def serve():
