@@ -10,7 +10,7 @@ paths:
           description: Token from facebook api
           required: true
           schema:
-            type: integer
+            type: string
       responses:
         200:
           $ref: '#/components/responses/AuthResponse'
