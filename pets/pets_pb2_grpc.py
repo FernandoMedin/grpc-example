@@ -14,10 +14,10 @@ class PetsStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.get_pets = channel.unary_unary(
-        '/pets.Pets/get_pets',
-        request_serializer=pets__pb2.pets_request.SerializeToString,
-        response_deserializer=pets__pb2.pets_reply.FromString,
+    self.GetPets = channel.unary_unary(
+        '/pets.Pets/GetPets',
+        request_serializer=pets__pb2.PetsRequest.SerializeToString,
+        response_deserializer=pets__pb2.PetsReply.FromString,
         )
 
 
@@ -25,7 +25,7 @@ class PetsServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def get_pets(self, request, context):
+  def GetPets(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -35,10 +35,10 @@ class PetsServicer(object):
 
 def add_PetsServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'get_pets': grpc.unary_unary_rpc_method_handler(
-          servicer.get_pets,
-          request_deserializer=pets__pb2.pets_request.FromString,
-          response_serializer=pets__pb2.pets_reply.SerializeToString,
+      'GetPets': grpc.unary_unary_rpc_method_handler(
+          servicer.GetPets,
+          request_deserializer=pets__pb2.PetsRequest.FromString,
+          response_serializer=pets__pb2.PetsReply.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

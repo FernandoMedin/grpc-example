@@ -19,28 +19,28 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='pets',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\npets.proto\x12\x04pets\"/\n\x0cpets_request\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x0e\n\x06pet_id\x18\x02 \x01(\x05\"Q\n\npets_reply\x12\x14\n\x0cpets_message\x18\x01 \x01(\t\x12\r\n\x05\x65rror\x18\x02 \x01(\t\x12\x0c\n\x04pets\x18\x03 \x03(\t\x12\x10\n\x08pet_name\x18\x04 \x01(\t2:\n\x04Pets\x12\x32\n\x08get_pets\x12\x12.pets.pets_request\x1a\x10.pets.pets_reply\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\npets.proto\x12\x04pets\".\n\x0bPetsRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x0e\n\x06pet_id\x18\x02 \x01(\x05\"P\n\tPetsReply\x12\x14\n\x0cpets_message\x18\x01 \x01(\t\x12\r\n\x05\x65rror\x18\x02 \x01(\t\x12\x0c\n\x04pets\x18\x03 \x03(\t\x12\x10\n\x08pet_name\x18\x04 \x01(\t27\n\x04Pets\x12/\n\x07GetPets\x12\x11.pets.PetsRequest\x1a\x0f.pets.PetsReply\"\x00\x62\x06proto3')
 )
 
 
 
 
-_PETS_REQUEST = _descriptor.Descriptor(
-  name='pets_request',
-  full_name='pets.pets_request',
+_PETSREQUEST = _descriptor.Descriptor(
+  name='PetsRequest',
+  full_name='pets.PetsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='user_id', full_name='pets.pets_request.user_id', index=0,
+      name='user_id', full_name='pets.PetsRequest.user_id', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='pet_id', full_name='pets.pets_request.pet_id', index=1,
+      name='pet_id', full_name='pets.PetsRequest.pet_id', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -59,40 +59,40 @@ _PETS_REQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=20,
-  serialized_end=67,
+  serialized_end=66,
 )
 
 
-_PETS_REPLY = _descriptor.Descriptor(
-  name='pets_reply',
-  full_name='pets.pets_reply',
+_PETSREPLY = _descriptor.Descriptor(
+  name='PetsReply',
+  full_name='pets.PetsReply',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='pets_message', full_name='pets.pets_reply.pets_message', index=0,
+      name='pets_message', full_name='pets.PetsReply.pets_message', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='error', full_name='pets.pets_reply.error', index=1,
+      name='error', full_name='pets.PetsReply.error', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='pets', full_name='pets.pets_reply.pets', index=2,
+      name='pets', full_name='pets.PetsReply.pets', index=2,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='pet_name', full_name='pets.pets_reply.pet_name', index=3,
+      name='pet_name', full_name='pets.PetsReply.pet_name', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -110,27 +110,27 @@ _PETS_REPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=69,
-  serialized_end=150,
+  serialized_start=68,
+  serialized_end=148,
 )
 
-DESCRIPTOR.message_types_by_name['pets_request'] = _PETS_REQUEST
-DESCRIPTOR.message_types_by_name['pets_reply'] = _PETS_REPLY
+DESCRIPTOR.message_types_by_name['PetsRequest'] = _PETSREQUEST
+DESCRIPTOR.message_types_by_name['PetsReply'] = _PETSREPLY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-pets_request = _reflection.GeneratedProtocolMessageType('pets_request', (_message.Message,), dict(
-  DESCRIPTOR = _PETS_REQUEST,
+PetsRequest = _reflection.GeneratedProtocolMessageType('PetsRequest', (_message.Message,), dict(
+  DESCRIPTOR = _PETSREQUEST,
   __module__ = 'pets_pb2'
-  # @@protoc_insertion_point(class_scope:pets.pets_request)
+  # @@protoc_insertion_point(class_scope:pets.PetsRequest)
   ))
-_sym_db.RegisterMessage(pets_request)
+_sym_db.RegisterMessage(PetsRequest)
 
-pets_reply = _reflection.GeneratedProtocolMessageType('pets_reply', (_message.Message,), dict(
-  DESCRIPTOR = _PETS_REPLY,
+PetsReply = _reflection.GeneratedProtocolMessageType('PetsReply', (_message.Message,), dict(
+  DESCRIPTOR = _PETSREPLY,
   __module__ = 'pets_pb2'
-  # @@protoc_insertion_point(class_scope:pets.pets_reply)
+  # @@protoc_insertion_point(class_scope:pets.PetsReply)
   ))
-_sym_db.RegisterMessage(pets_reply)
+_sym_db.RegisterMessage(PetsReply)
 
 
 
@@ -140,16 +140,16 @@ _PETS = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=152,
-  serialized_end=210,
+  serialized_start=150,
+  serialized_end=205,
   methods=[
   _descriptor.MethodDescriptor(
-    name='get_pets',
-    full_name='pets.Pets.get_pets',
+    name='GetPets',
+    full_name='pets.Pets.GetPets',
     index=0,
     containing_service=None,
-    input_type=_PETS_REQUEST,
-    output_type=_PETS_REPLY,
+    input_type=_PETSREQUEST,
+    output_type=_PETSREPLY,
     serialized_options=None,
   ),
 ])
