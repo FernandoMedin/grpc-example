@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package users;
+
+service Users {
+  rpc GetUser (UserRequest) returns (UserReply) {}
+  rpc GetUSerPets (UserRequest) returns (UserPetsReply) {}
+}
+
+message UserRequest {
+  int32 user_id = 1;
+}
+
+message UserReply {
+  string user_name = 1;
+  string user_email = 2;
+}
+
+message UserPetsReply {
+  repeated string pets = 1;
+}
