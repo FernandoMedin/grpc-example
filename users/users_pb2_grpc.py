@@ -19,8 +19,8 @@ class UsersStub(object):
         request_serializer=users__pb2.UserRequest.SerializeToString,
         response_deserializer=users__pb2.UserReply.FromString,
         )
-    self.GetUSerPets = channel.unary_unary(
-        '/users.Users/GetUSerPets',
+    self.GetUserPets = channel.unary_unary(
+        '/users.Users/GetUserPets',
         request_serializer=users__pb2.UserRequest.SerializeToString,
         response_deserializer=users__pb2.UserPetsReply.FromString,
         )
@@ -37,7 +37,7 @@ class UsersServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def GetUSerPets(self, request, context):
+  def GetUserPets(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -52,8 +52,8 @@ def add_UsersServicer_to_server(servicer, server):
           request_deserializer=users__pb2.UserRequest.FromString,
           response_serializer=users__pb2.UserReply.SerializeToString,
       ),
-      'GetUSerPets': grpc.unary_unary_rpc_method_handler(
-          servicer.GetUSerPets,
+      'GetUserPets': grpc.unary_unary_rpc_method_handler(
+          servicer.GetUserPets,
           request_deserializer=users__pb2.UserRequest.FromString,
           response_serializer=users__pb2.UserPetsReply.SerializeToString,
       ),

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='users',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0busers.proto\x12\x05users\"\x1e\n\x0bUserRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"2\n\tUserReply\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x12\n\nuser_email\x18\x02 \x01(\t\"\x1d\n\rUserPetsReply\x12\x0c\n\x04pets\x18\x01 \x03(\t2u\n\x05Users\x12\x31\n\x07GetUser\x12\x12.users.UserRequest\x1a\x10.users.UserReply\"\x00\x12\x39\n\x0bGetUSerPets\x12\x12.users.UserRequest\x1a\x14.users.UserPetsReply\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0busers.proto\x12\x05users\"\x1e\n\x0bUserRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"2\n\tUserReply\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x12\n\nuser_email\x18\x02 \x01(\t\"\x1d\n\rUserPetsReply\x12\x0c\n\x04pets\x18\x01 \x03(\t2u\n\x05Users\x12\x31\n\x07GetUser\x12\x12.users.UserRequest\x1a\x10.users.UserReply\"\x00\x12\x39\n\x0bGetUserPets\x12\x12.users.UserRequest\x1a\x14.users.UserPetsReply\"\x00\x62\x06proto3')
 )
 
 
@@ -171,8 +171,8 @@ _USERS = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='GetUSerPets',
-    full_name='users.Users.GetUSerPets',
+    name='GetUserPets',
+    full_name='users.Users.GetUserPets',
     index=1,
     containing_service=None,
     input_type=_USERREQUEST,
