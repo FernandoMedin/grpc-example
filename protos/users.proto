@@ -4,7 +4,7 @@ package users;
 
 service Users {
   rpc GetUser (UserRequest) returns (UserReply) {}
-  rpc GetUSerPets (UserRequest) returns (UserPetsReply) {}
+  rpc GetUserPets (UserRequest) returns (UserPetsReply) {}
 }
 
 message UserRequest {

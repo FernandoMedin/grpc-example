@@ -12,6 +12,9 @@ def test_get_pets():
         stub = u_grpc.UsersStub(channel)
         response = stub.GetUser(u.UserRequest(user_id=1))
         print(response)
+        
+        response = stub.GetUserPets(u.UserRequest(user_id=1))
+        print(response)
 
 if __name__ == "__main__":
     test_get_pets()
