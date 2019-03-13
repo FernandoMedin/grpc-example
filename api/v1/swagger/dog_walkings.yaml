@@ -1,0 +1,198 @@
+paths:
+  /dog_walkings:
+    get:
+      tags:
+        - dog walking
+      summary: Get dog walkings from user
+      parameters:
+        - $ref: '#/components/parameters/acceptAdmin'
+      security:
+        - token: []
+      responses:
+        200:
+          $ref: '#/components/responses/DogWalkingsResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
+  /dog_walkings/{id}:
+    get:
+      tags:
+        - dog walking
+      summary: Get dog walking from user
+      parameters:
+        - $ref: '#/components/parameters/acceptAdmin'
+      security:
+        - token: []
+      responses:
+        200:
+          $ref: '#/components/responses/DogWalkingResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+    put:
+      tags:
+        - dog walking
+      summary: Start a dog walking. Only for clients
+      parameters:
+        - $ref: '#/components/parameters/acceptAdmin'
+      security:
+        - token: []
+      responses:
+        200:
+          $ref: '#/components/responses/DogWalkingResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
+  /dog_walkings/{id}/start:
+    patch:
+      tags:
+        - dog walking
+      summary: Start a dog walking. Only for walkers
+      parameters:
+        - $ref: '#/components/parameters/acceptAdmin'
+      security:
+        - token: []
+      responses:
+        200:
+          $ref: '#/components/responses/DogWalkingResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
+  /dog_walkings/{id}/on_the_way:
+    patch:
+      tags:
+        - dog walking
+      summary: On the way of a dog walking. Only for walkers
+      parameters:
+        - $ref: '#/components/parameters/acceptAdmin'
+      security:
+        - token: []
+      responses:
+        200:
+          $ref: '#/components/responses/DogWalkingResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
+  /dog_walkings/{id}/finish:
+    patch:
+      tags:
+        - dog walking
+      summary: Finish a dog walking. Only for walkers
+      parameters:
+        - $ref: '#/components/parameters/acceptAdmin'
+      security:
+        - token: []
+      responses:
+        200:
+          $ref: '#/components/responses/DogWalkingResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
+  /dog_walkings/{id}/cancel:
+    patch:
+      tags:
+        - dog walking
+      summary: Cancel a dog walking.
+      parameters:
+        - $ref: '#/components/parameters/acceptAdmin'
+      security:
+        - token: []
+      responses:
+        200:
+          $ref: '#/components/responses/DogWalkingResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        500:
+          $ref: '#/components/responses/Error'
+
+components:
+  parameters:
+    dogWalkingData:
+      in: body
+      name: body
+      description: It enables a user to update Dog Walking
+      required: true
+      schema:
+        $ref: '#/components/schemas/DogWalking'
+
+  schemas:
+    DogWalkings:
+      type: array
+      items:
+        $ref: '#/components/schemas/DogWalking'
+    DogWalking:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          readOnly: true
+        user_id:
+          type: integer
+          format: int64
+          readOnly: true
+        walker_id:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        contract_id:
+          type: integer
+          format: int64
+          nullable: true
+        address_id:
+          type: integer
+          format: int64
+        report_id:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        is_on_demand:
+          type: booelan
+        walking_minutes:
+          type: integer
+          enum: [30, 60]
+        status:
+          type: string
+          enum: ['pending', 'on_the_way', 'started', 'finished', 'canceled']
+        price:
+          type: number
+          format: float
+      example:
+        id: 1
+        user_id: 5
+        walker_id: 10
+        contract_id: null
+        address_id: 22
+        report_id: null
+        is_on_demand: true
+        walker_minutes: 30
+        status: pending
+        price: 25.00
+
+  responses:
+    DogWalkingResponse:
+      description: An object with dog walking detail
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DogWalking'
+
+    DogWalkingsResponse:
+      description: An object with dog walking array
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DogWalkings'
