@@ -33,7 +33,7 @@ class Users(u_grpc.UsersServicer):
         with grpc.insecure_channel(os.environ['PETS_SERVICE']) as channel:
             stub = p_grpc.PetsStub(channel)
             response = stub.GetPets(p.PetsRequest(user_id=request.user_id))
-        return u.UserPetsReply(response.pets=pets)
+        return u.UserPetsReply(pets=response.pets)
 
 
 def serve():
