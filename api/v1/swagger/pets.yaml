@@ -122,15 +122,15 @@ components:
         type: integer
     petData:
       in: body
-      name: pet
+      name: body
       description: It enables a user to update pet profile
       required: true
       schema:
         $ref: '#/components/schemas/Pet'
   schemas:
     Pets:
-      type: object
-      additionalProperties:
+      type: array
+      items:
         $ref: '#/components/schemas/Pet'
       example:
         - id: 1

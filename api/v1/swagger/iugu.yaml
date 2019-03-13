@@ -75,13 +75,13 @@ components:
           readOnly: true
 
     IuguBanks:
-      type: object
-      additionalProperties:
+      type: array
+      items:
         $ref: '#/components/schemas/IuguBank'
 
     IuguAccounts:
-      type: object
-      additionalProperties:
+      type: array
+      items:
         $ref: '#/components/schemas/IuguAccount'
 
     IuguAccount:

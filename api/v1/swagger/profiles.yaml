@@ -35,7 +35,7 @@ components:
   parameters:
     profileData:
       in: body
-      name: profile
+      name: body
       description: It enables a user to update profile
       required: true
       schema:
